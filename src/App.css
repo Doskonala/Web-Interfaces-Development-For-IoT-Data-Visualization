@@ -1,2 +1,15 @@
-main {
+body {
+  background-color: cadetblue;
+  font-family: Arial, sans-serif;
+}
+h1 {
+  color: aliceblue;
+  text-align: center;
+}
+button{
+  background-color: lightcyan;
+  color: darkmagenta;
+  padding: 12px;
+  border: none;
+  cursor: pointer;
 }
