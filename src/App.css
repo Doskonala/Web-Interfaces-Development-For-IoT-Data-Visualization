@@ -6,10 +6,3 @@ h1 {
   color: aliceblue;
   text-align: center;
 }
-button{
-  background-color: lightcyan;
-  color: darkmagenta;
-  padding: 12px;
-  border: none;
-  cursor: pointer;
-}
