@@ -6,7 +6,7 @@ const Menu = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
             <div className="container">
-                <Link className="navbar-brand" to="/">React + Router</Link>
+                <Link className="navbar-brand" to="/">Energy</Link>
                 <button 
                     className="navbar-toggler" 
                     type="button" 
@@ -18,13 +18,13 @@ const Menu = () => {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <Link className="nav-link" to="/">Головна</Link>
+                            <Link className="nav-link" to="/">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/energy">Споживання енергії</Link>
+                            <Link className="nav-link" to="/energy">Energy consumption</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/about">Про користувача</Link>
+                            <Link className="nav-link" to="/about">About us</Link>
                         </li>
                     </ul>
                 </div>
@@ -37,8 +37,8 @@ const Menu = () => {
 const Home = () => {
     return (
         <div className="container mt-4">
-            <h1>Головна сторінка</h1>
-            <p>Вітаємо на нашому сайті!</p>
+            <h1>Home page</h1>
+            <p>Welcome to our energy website!</p>
         </div>
     );
 };
@@ -47,8 +47,8 @@ const Home = () => {
 const Energy = () => {
     return (
         <div className="container mt-4">
-            <h1>Споживання енергії</h1>
-            <p>Тут відображається інформація про споживання енергії.</p>
+            <h1>Energy consumption</h1>
+            <p>See data on energy consumption.</p>
         </div>
     );
 };
@@ -57,8 +57,8 @@ const Energy = () => {
 const About = () => {
     return (
         <div className="container mt-4">
-            <h1>Про користувача</h1>
-            <p>Детальна інформація про користувача.</p>
+            <h1>About us</h1>
+            <p>Details about the project.</p>
         </div>
     );
 };
@@ -67,7 +67,7 @@ const About = () => {
 const Footer = () => {
     return (
         <footer className="bg-dark text-white text-center py-3 mt-4">
-            <p>© 2025 Всі права захищені</p>
+            <p>© 2025 All rights reserved.</p>
         </footer>
     );
 };
