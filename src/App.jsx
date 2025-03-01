@@ -1,6 +1,6 @@
 import './App.css'
-const { BrowserRouter, Routes, Route, Link } = ReactRouterDOM;
-
+import React from 'react'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 
 const Menu = () => {
     return (
@@ -87,6 +87,4 @@ const App = () => {
     );
 };
 
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+export default App;
