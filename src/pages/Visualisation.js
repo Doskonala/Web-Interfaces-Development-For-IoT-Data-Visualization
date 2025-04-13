@@ -3,7 +3,7 @@ import { Container, Form, Alert } from "react-bootstrap";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import localforage from "localforage";
 
-const Dashboard = () => {
+const Visualisation = () => {
   const [user, setUser] = useState(null);
   const [users, setUsers] = useState([]);
   const [houses, setHouses] = useState([]);
@@ -122,4 +122,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Visualisation;

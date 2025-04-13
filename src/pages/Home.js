@@ -18,8 +18,8 @@ const Home = () => {
 
   return (
     <Container className="mt-4 text-center">
-      <h1>Welcome to Energy Dashboard</h1>
-      <p>Monitor and analyze energy consumption of your households.</p>
+      <h1>Welcome to Info Solar</h1>
+      <p>Monitor and analyze the latest information on solar panels.</p>
 
       {user ? (
         <>

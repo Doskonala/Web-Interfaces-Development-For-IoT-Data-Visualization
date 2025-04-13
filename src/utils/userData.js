@@ -1,12 +1,12 @@
 import localforage from "localforage";
 
 const users = [
-    { id: 1, name: "Alice Johnson", email: "alice@example.com", password: "password123", role: "admin" },
-    { id: 2, name: "Bob Smith", email: "bob@example.com", password: "secure456", role: "admin" },
-    { id: 3, name: "Charlie Brown", email: "charlie@example.com", password: "energy789", role: "user" },
-    { id: 4, name: "David White", email: "david@example.com", password: "household321", role: "user" },
-    { id: 5, name: "Eva Green", email: "eva@example.com", password: "password987", role: "user" },
-    { id: 6, name: "Frank Miller", email: "frank@example.com", password: "mypass999", role: "user" },
+    { id: 1, name: "Nataliia Kashuba", email: "nataliia.kashuba-item241@nung.edu.ua", password: "password123", role: "admin" },
+    { id: 2, name: "Natalie Kashuba", email: "natalie.kashuba-item241@nung.edu.ua", password: "secure456", role: "admin" },
+    { id: 3, name: "Nataly Kashuba", email: "nataly.kashuba-item241@nung.edu.ua", password: "energy789", role: "user" },
+    { id: 4, name: "Natty Kashuba", email: "natty.kashuba-item241@nung.edu.ua", password: "household321", role: "user" },
+    { id: 5, name: "Nattie Kashuba", email: "nattie.kashuba-item241@nung.edu.ua", password: "password987", role: "user" },
+    { id: 6, name: "Nat Kashuba", email: "nat.kashuba-item241@nung.edu.ua", password: "mypass999", role: "user" },
   ];
 
   const houses = [
