@@ -61,7 +61,7 @@ const Visualisation = () => {
 
   return (
     <Container className="mt-4">
-      <h2>Energy Consumption Dashboard</h2>
+      <h2>Energy Generation by Solar Panels</h2>
 
       {/* House selection */}
       <Form.Group className="mb-3">
