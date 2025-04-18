@@ -7,17 +7,17 @@ const Visualisation = () => {
   const [user, setUser] = useState(null);
   const [users, setUsers] = useState([]);
   const [addresses, setAddresses] = useState([]);
-  const [consumptionTypes, setConsumptionTypes] = useState([]);
+  const [generationYears, setGenerationYears] = useState([]);
   const [selectedAddress, setSelectedAddress] = useState("");
   const [selectedEntity, setSelectedEntity] = useState("");
-  const [selectedType, setSelectedType] = useState("");
+  const [selectedYear, setSelectedTYear] = useState("");
   const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
     localforage.getItem("currentUser").then(setUser);
     localforage.getItem("users").then(setUsers);
     localforage.getItem("addresses").then(setAddresses);
-    localforage.getItem("consumptionTypes").then(setConsumptionTypes);
+    localforage.getItem("generationYears").then(setGenerationYears);
   }, []);
 
   useEffect(() => {
@@ -26,26 +26,26 @@ const Visualisation = () => {
       return;
     }
 
-    let filtered = consumptionTypes.filter((c) => c.addressId.toString() === selectedAddress);
+    let filtered = generationYears.filter((c) => c.addressId.toString() === selectedAddress);
 
-    if (selectedType) {
-      filtered = filtered.filter((c) => c.type === selectedType);
+    if (selectedYear) {
+      filtered = filtered.filter((c) => c.type === selectedYear);
     }
 
     if (selectedEntity) {
       const validAddressIds = addresses
         .filter((h) => h.entity === selectedEntity)
         .map((h) => h.id);
-      filtered = filtered.filter((c) => validAddressIds.includes(c.adressId));
+      filtered = filtered.filter((c) => validAddressIds.includes(c.addressId));
     }
 
-    const aggregatedConsumption = Object.keys(filtered[0]?.usage || {}).map((month) => ({
+    const aggregatedGeneration = Object.keys(filtered[0]?.generation || {}).map((month) => ({
       month,
-      usage: filtered.reduce((sum, item) => sum + item.usage[month], 0),
+      generation: filtered.reduce((sum, item) => sum + item.generation[month], 0),
     }));
 
-    setFilteredData(aggregatedConsumption);
-  }, [selectedAddress, selectedType, selectedEntity, consumptionTypes, addresses]);
+    setFilteredData(aggregatedGeneration);
+  }, [selectedAddress, selectedYear, selectedEntity, generationYears, addresses]);
 
   if (!user) {
     return (
@@ -57,7 +57,7 @@ const Visualisation = () => {
 
   const userAddresses = addresses.filter((address) => address.ownerId === user.id);
   const uniqueEntities = [...new Set(addresses.map((address) => address.entity))];
-  const uniqueTypes = [...new Set(consumptionTypes.map((c) => c.type))];
+  const uniqueTypes = [...new Set(generationYears.map((c) => c.type))];
 
   return (
     <Container className="mt-4">
@@ -91,14 +91,14 @@ const Visualisation = () => {
         </Form.Group>
       )}
 
-      {/* Consumption type selection */}
+      {/* Generation year selection */}
       <Form.Group className="mb-3">
-        <Form.Label>Select Consumption Type</Form.Label>
-        <Form.Select value={selectedType} onChange={(e) => setSelectedType(e.target.value)}>
-          <option value="">-- All Types --</option>
-          {uniqueTypes.map((type) => (
-            <option key={type} value={type}>
-              {type}
+        <Form.Label>Select Generation Year</Form.Label>
+        <Form.Select value={selectedYear} onChange={(e) => setSelectedTYear(e.target.value)}>
+          <option value="">-- All Years --</option>
+          {uniqueTypes.map((year) => (
+            <option key={year} value={year}>
+              {year}
             </option>
           ))}
         </Form.Select>
@@ -112,7 +112,7 @@ const Visualisation = () => {
             <XAxis dataKey="month" />
             <YAxis />
             <Tooltip />
-            <Bar dataKey="usage" fill="#8884d8" />
+            <Bar dataKey="generation" fill="#4e8238" />
           </BarChart>
         </ResponsiveContainer>
       ) : (
