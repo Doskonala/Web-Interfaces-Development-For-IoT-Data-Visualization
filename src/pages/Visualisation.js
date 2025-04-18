@@ -6,37 +6,37 @@ import localforage from "localforage";
 const Visualisation = () => {
   const [user, setUser] = useState(null);
   const [users, setUsers] = useState([]);
-  const [houses, setHouses] = useState([]);
+  const [addresses, setAddresses] = useState([]);
   const [consumptionTypes, setConsumptionTypes] = useState([]);
-  const [selectedHouse, setSelectedHouse] = useState("");
-  const [selectedTerrain, setSelectedTerrain] = useState("");
+  const [selectedAddress, setSelectedAddress] = useState("");
+  const [selectedEntity, setSelectedEntity] = useState("");
   const [selectedType, setSelectedType] = useState("");
   const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
     localforage.getItem("currentUser").then(setUser);
     localforage.getItem("users").then(setUsers);
-    localforage.getItem("houses").then(setHouses);
+    localforage.getItem("addresses").then(setAddresses);
     localforage.getItem("consumptionTypes").then(setConsumptionTypes);
   }, []);
 
   useEffect(() => {
-    if (!selectedHouse) {
+    if (!selectedAddress) {
       setFilteredData([]);
       return;
     }
 
-    let filtered = consumptionTypes.filter((c) => c.houseId.toString() === selectedHouse);
+    let filtered = consumptionTypes.filter((c) => c.addressId.toString() === selectedAddress);
 
     if (selectedType) {
       filtered = filtered.filter((c) => c.type === selectedType);
     }
 
-    if (selectedTerrain) {
-      const validHouseIds = houses
-        .filter((h) => h.terrain === selectedTerrain)
+    if (selectedEntity) {
+      const validAddressIds = addresses
+        .filter((h) => h.entity === selectedEntity)
         .map((h) => h.id);
-      filtered = filtered.filter((c) => validHouseIds.includes(c.houseId));
+      filtered = filtered.filter((c) => validAddressIds.includes(c.adressId));
     }
 
     const aggregatedConsumption = Object.keys(filtered[0]?.usage || {}).map((month) => ({
@@ -45,7 +45,7 @@ const Visualisation = () => {
     }));
 
     setFilteredData(aggregatedConsumption);
-  }, [selectedHouse, selectedType, selectedTerrain, consumptionTypes, houses]);
+  }, [selectedAddress, selectedType, selectedEntity, consumptionTypes, addresses]);
 
   if (!user) {
     return (
@@ -55,36 +55,36 @@ const Visualisation = () => {
     );
   }
 
-  const userHouses = houses.filter((house) => house.ownerId === user.id);
-  const uniqueTerrains = [...new Set(houses.map((house) => house.terrain))];
+  const userAddresses = addresses.filter((address) => address.ownerId === user.id);
+  const uniqueEntities = [...new Set(addresses.map((address) => address.entity))];
   const uniqueTypes = [...new Set(consumptionTypes.map((c) => c.type))];
 
   return (
     <Container className="mt-4">
       <h2>Energy Generation by Solar Panels</h2>
 
-      {/* House selection */}
+      {/* Address selection */}
       <Form.Group className="mb-3">
-        <Form.Label>Select House</Form.Label>
-        <Form.Select value={selectedHouse} onChange={(e) => setSelectedHouse(e.target.value)}>
-          <option value="">-- Select a House --</option>
-          {userHouses.map((house) => (
-            <option key={house.id} value={house.id}>
-              {house.address} ({house.city})
+        <Form.Label>Select Address</Form.Label>
+        <Form.Select value={selectedAddress} onChange={(e) => setSelectedAddress(e.target.value)}>
+          <option value="">-- Select an Address --</option>
+          {userAddresses.map((address) => (
+            <option key={address.id} value={address.id}>
+              {address.address} ({address.city})
             </option>
           ))}
         </Form.Select>
       </Form.Group>
 
-      {/* Terrain selection (only for admins) */}
+      {/* Entity selection (only for admins) */}
       {user.role === "admin" && (
         <Form.Group className="mb-3">
-          <Form.Label>Select Terrain</Form.Label>
-          <Form.Select value={selectedTerrain} onChange={(e) => setSelectedTerrain(e.target.value)}>
-            <option value="">-- All Terrain Types --</option>
-            {uniqueTerrains.map((terrain) => (
-              <option key={terrain} value={terrain}>
-                {terrain.charAt(0).toUpperCase() + terrain.slice(1)}
+          <Form.Label>Select Entity Type</Form.Label>
+          <Form.Select value={selectedEntity} onChange={(e) => setSelectedEntity(e.target.value)}>
+            <option value="">-- All Entity Types --</option>
+            {uniqueEntities.map((entity) => (
+              <option key={entity} value={entity}>
+                {entity.charAt(0).toUpperCase() + entity.slice(1)}
               </option>
             ))}
           </Form.Select>
