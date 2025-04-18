@@ -50,7 +50,7 @@ const Visualisation = () => {
   if (!user) {
     return (
       <Container className="mt-4">
-        <Alert variant="danger">You need to log in to access the dashboard.</Alert>
+        <Alert variant="danger">You need to log in to access the data.</Alert>
       </Container>
     );
   }

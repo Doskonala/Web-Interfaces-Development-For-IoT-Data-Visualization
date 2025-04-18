@@ -31,16 +31,16 @@ const users = [
   ];
 
 const generationYears = [
-  { id: 1, addressId: 1, type: "2024", generation: { Jan: 120, Feb: 110, Mar: 130, Apr: 140, May: 135, Jun: 145, Jul: 150, Aug: 148, Sep: 140, Oct: 130, Nov: 125, Dec: 120 } },
-  { id: 2, addressId: 1, type: "2023", generation: { Jan: 50, Feb: 45, Mar: 55, Apr: 60, May: 58, Jun: 65, Jul: 70, Aug: 68, Sep: 63, Oct: 55, Nov: 50, Dec: 48 } },
-  { id: 3, addressId: 2, type: "2022", generation: { Jan: 300, Feb: 280, Mar: 320, Apr: 350, May: 340, Jun: 360, Jul: 370, Aug: 365, Sep: 355, Oct: 320, Nov: 310, Dec: 300 } },
-  { id: 4, addressId: 3, type: "2021", generation: { Jan: 200, Feb: 190, Mar: 210, Apr: 220, May: 215, Jun: 225, Jul: 230, Aug: 228, Sep: 220, Oct: 210, Nov: 205, Dec: 200 } },
-  { id: 5, addressId: 4, type: "2020", generation: { Jan: 80, Feb: 75, Mar: 85, Apr: 90, May: 88, Jun: 95, Jul: 100, Aug: 98, Sep: 93, Oct: 85, Nov: 80, Dec: 78 } },
-  { id: 6, addressId: 5, type: "2019", generation: { Jan: 250, Feb: 230, Mar: 260, Apr: 280, May: 270, Jun: 290, Jul: 300, Aug: 295, Sep: 285, Oct: 260, Nov: 250, Dec: 240 } },
-  { id: 7, addressId: 6, type: "2021", gneration: { Jan: 150, Feb: 140, Mar: 160, Apr: 170, May: 165, Jun: 175, Jul: 180, Aug: 178, Sep: 170, Oct: 160, Nov: 155, Dec: 150 } },
-  { id: 8, addressId: 7, type: "2023", generation: { Jan: 90, Feb: 85, Mar: 95, Apr: 100, May: 98, Jun: 105, Jul: 110, Aug: 108, Sep: 103, Oct: 95, Nov: 90, Dec: 88 } },
-  { id: 9, addressId: 8, type: "2022", generation: { Jan: 320, Feb: 300, Mar: 340, Apr: 360, May: 350, Jun: 370, Jul: 380, Aug: 375, Sep: 365, Oct: 340, Nov: 330, Dec: 320 } },
-  { id: 10, addressId: 9, type: "2024", generation: { Jan: 130, Feb: 120, Mar: 140, Apr: 150, May: 145, Jun: 155, Jul: 160, Aug: 158, Sep: 150, Oct: 140, Nov: 135, Dec: 130 } },
+  { id: 1, addressId: 1, type: "2024", generation: { Jan: 280, Feb: 310, Mar: 450, Apr: 520, May: 580, Jun: 650, Jul: 680, Aug: 640, Sep: 520, Oct: 380, Nov: 290, Dec: 250 } },
+  { id: 2, addressId: 1, type: "2023", generation: { Jan: 420, Feb: 460, Mar: 590, Apr: 680, May: 750, Jun: 820, Jul: 850, Aug: 810, Sep: 690, Oct: 520, Nov: 430, Dec: 390 } },
+  { id: 3, addressId: 2, type: "2022", generation: { Jan: 180, Feb: 210, Mar: 320, Apr: 380, May: 440, Jun: 490, Jul: 510, Aug: 480, Sep: 390, Oct: 280, Nov: 200, Dec: 170 } },
+  { id: 4, addressId: 3, type: "2021", generation: { Jan: 340, Feb: 380, Mar: 480, Apr: 560, May: 620, Jun: 690, Jul: 710, Aug: 680, Sep: 570, Oct: 430, Nov: 350, Dec: 320 } },
+  { id: 5, addressId: 4, type: "2020", generation: { Jan: 150, Feb: 180, Mar: 270, Apr: 320, May: 380, Jun: 420, Jul: 440, Aug: 410, Sep: 340, Oct: 240, Nov: 170, Dec: 140 } },
+  { id: 6, addressId: 5, type: "2019", generation: { Jan: 390, Feb: 430, Mar: 540, Apr: 620, May: 690, Jun: 760, Jul: 790, Aug: 750, Sep: 630, Oct: 480, Nov: 400, Dec: 360 } },
+  { id: 7, addressId: 6, type: "2021", gneration: { Jan: 230, Feb: 260, Mar: 380, Apr: 440, May: 500, Jun: 560, Jul: 580, Aug: 550, Sep: 450, Oct: 320, Nov: 240, Dec: 210 } },
+  { id: 8, addressId: 7, type: "2023", generation: { Jan: 310, Feb: 350, Mar: 460, Apr: 530, May: 590, Jun: 660, Jul: 680, Aug: 650, Sep: 540, Oct: 400, Nov: 320, Dec: 290 } },
+  { id: 9, addressId: 8, type: "2022", generation: { Jan: 260, Feb: 290, Mar: 410, Apr: 470, May: 530, Jun: 590, Jul: 610, Aug: 580, Sep: 480, Oct: 350, Nov: 270, Dec: 240 } },
+  { id: 10, addressId: 9, type: "2024", generation: { Jan: 360, Feb: 400, Mar: 510, Apr: 580, May: 650, Jun: 720, Jul: 740, Aug: 710, Sep: 590, Oct: 450, Nov: 370, Dec: 340 } },
 ];
 
 export const initializeData = async () => {
